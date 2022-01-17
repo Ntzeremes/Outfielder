@@ -1,0 +1,17 @@
+Skills-concepts learned for this programm.
+
+	* Creating Buttons and changing text in pygame.
+
+	* Creating a basic program structure with classes.
+
+	* Scaling objects actual coordinates to pixels so that can be drawn correctly.
+	  And vice versa changing object position from pixels to meters for calculations.
+
+	* Creating ,configuring and saving plots with matplotlib.
+
+	* Calculating new vectors by changing axis of reference.
+
+	* Approaching a physical problem and thinking about an efficient algorithmic solution.
+
+	* New functions and uses of the language.
+	
