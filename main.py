@@ -57,6 +57,7 @@ def main():
     glove = Glove(screen)
     text = Text(font, (1132, 450), 200, 150, "Ball and outfielder")
     distance_text = ChangingText(font, (1100, 512), 200, 150, None, '--', "distance", "meters")
+    v_angle_text = ChangingText(font, (1100, 560),200, 150, None, "--", "vertical angle", "degrees")
     start_button = Button("Start", 150, 60, (30, 680), font)
     repeat_button = Button("Repeat", 150, 60, (30, 750), font)
     new_button = Button("New", 150, 60, (30, 820), font)
@@ -68,6 +69,7 @@ def main():
 
     start = False
     distance = "--"
+    v_angle = "--"
 
     # The basic loop of our simulation
     while not sim_over:
@@ -77,6 +79,7 @@ def main():
         while not start:
             draw(screen, background,balls, xs, ys, counter, h_angle, glove, start_button, repeat_button, new_button,
                  distance_text, distance, text)
+            v_angle_text.draw(v_angle, screen)
             pygame.display.flip()
             clock.tick(FPS)
 
@@ -110,10 +113,10 @@ def main():
 
         if counter < size - 1:
 
-            distance = glove.move((xs[counter]*cos(h_angle), xs[counter]*sin(h_angle)))
+            distance, v_angle = glove.move((xs[counter]*cos(h_angle), xs[counter]*sin(h_angle)))
             draw(screen, background,balls, xs, ys, counter, h_angle, glove, start_button, repeat_button, new_button,
                  distance_text, distance, text)
-
+            v_angle_text.draw(v_angle, screen)
 
             counter += 1
 

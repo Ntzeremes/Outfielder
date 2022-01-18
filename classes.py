@@ -147,7 +147,7 @@ class Glove:
                 self.x += int(speed * self.dt * cos(angle)/0.1418)
                 self.y -= int(speed * self.dt * sin(angle)/0.1418)
                 self.glove_rect = self.glove.get_rect(center=(self.x, self.y))
-        return round(distance, 2)
+        return round(distance, 2), round(v_angle, 2)
 
     def reset(self):
         self.x = self.xo
