@@ -115,7 +115,7 @@ class Glove:
         return atan(abs((glove_pos[1] - ball_pos[1])/abs((glove_pos[0] - ball_pos[0])))), distance
 
     def vertical_angle(self, distance, ball_pos):
-        return math.atan(ball_pos[1]/distance)
+        return math.atan(ball_pos[2]/distance) * 360/6.281
 
     def move(self, ball_pos):
 
@@ -147,7 +147,7 @@ class Glove:
                 self.x += int(speed * self.dt * cos(angle)/0.1418)
                 self.y -= int(speed * self.dt * sin(angle)/0.1418)
                 self.glove_rect = self.glove.get_rect(center=(self.x, self.y))
-        return round(distance, 2), round(v_angle, 2)
+        return round(distance, 2), round(v_angle, 2), round(angle*360/6.28, 2)
 
     def reset(self):
         self.x = self.xo

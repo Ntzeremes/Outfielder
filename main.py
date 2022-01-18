@@ -55,10 +55,11 @@ def main():
     background = Background(screen)
     balls = Balls(xs, ys, screen)
     glove = Glove(screen)
-    text = Text(font, (1132, 450), 200, 150, "Ball and outfielder")
-    distance_text = ChangingText(font, (1100, 512), 200, 150, None, '--', "distance", "meters")
-    v_angle_text = ChangingText(font, (1100, 560),200, 150, None, "--", "vertical angle", "degrees")
-    start_button = Button("Start", 150, 60, (30, 680), font)
+    text = Text(font, (1132, 570), 200, 150, "Ball and outfielder")
+    distance_text = ChangingText(font, (1100, 632), 200, 150, None, '--', "distance", "meters")
+    v_angle_text = ChangingText(font, (1100, 684), 200, 150, None, "--", "vertical angle", "degrees")
+    h_angle_text = ChangingText(font, (1100, 746), 200, 150, None, "--", "horizontal angle", "degrees")
+    start_button = Button("Start", 150, 60, (30, 688), font)
     repeat_button = Button("Repeat", 150, 60, (30, 750), font)
     new_button = Button("New", 150, 60, (30, 820), font)
     glove.draw()
@@ -69,7 +70,8 @@ def main():
 
     start = False
     distance = "--"
-    v_angle = "--"
+    ve_angle = "--"
+    ho_angle = "--"
 
     # The basic loop of our simulation
     while not sim_over:
@@ -79,7 +81,8 @@ def main():
         while not start:
             draw(screen, background,balls, xs, ys, counter, h_angle, glove, start_button, repeat_button, new_button,
                  distance_text, distance, text)
-            v_angle_text.draw(v_angle, screen)
+            v_angle_text.draw(ve_angle, screen)
+            h_angle_text.draw(ho_angle, screen)
             pygame.display.flip()
             clock.tick(FPS)
 
@@ -113,10 +116,11 @@ def main():
 
         if counter < size - 1:
 
-            distance, v_angle = glove.move((xs[counter]*cos(h_angle), xs[counter]*sin(h_angle)))
+            distance, ve_angle, ho_angle = glove.move((xs[counter]*cos(h_angle), xs[counter]*sin(h_angle), ys[counter]))
             draw(screen, background,balls, xs, ys, counter, h_angle, glove, start_button, repeat_button, new_button,
                  distance_text, distance, text)
-            v_angle_text.draw(v_angle, screen)
+            v_angle_text.draw(ve_angle, screen)
+            h_angle_text.draw(ho_angle, screen)
 
             counter += 1
 
