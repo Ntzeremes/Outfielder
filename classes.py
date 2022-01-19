@@ -131,22 +131,22 @@ class Glove:
 
         if x > ball_pos[0]:
             if y > ball_pos[1]:
-                self.x -= int(speed * self.dt * cos(angle)/0.1418)
-                self.y += int(speed * self.dt * sin(angle)/0.1418)
-                self.glove_rect = self.glove.get_rect(center=(self.x, self.y))
+                a = -1
+                b = 1
             else:
-                self.x -= int(speed * self.dt * cos(angle)/0.1418)
-                self.y -= int(speed * self.dt * sin(angle)/0.1418)
-                self.glove_rect = self.glove.get_rect(center=(self.x, self.y))
+                a = -1
+                b = -1
         else:
             if y > ball_pos[1]:
-                self.x += int(speed * self.dt * cos(angle)/0.1418)
-                self.y += int(speed * self.dt * sin(angle)/0.1418)
-                self.glove_rect = self.glove.get_rect(center=(self.x, self.y))
+                a = 1
+                b = 1
             else:
-                self.x += int(speed * self.dt * cos(angle)/0.1418)
-                self.y -= int(speed * self.dt * sin(angle)/0.1418)
-                self.glove_rect = self.glove.get_rect(center=(self.x, self.y))
+                a = 1
+                b = -1
+
+        self.x += int(speed * self.dt * cos(angle)/0.1418) * a
+        self.y += int(speed * self.dt * sin(angle)/0.1418) * b
+        self.glove_rect = self.glove.get_rect(center=(self.x, self.y))
         return round(distance, 2), round(v_angle, 2), round(angle*360/6.28, 2)
 
     def reset(self):
