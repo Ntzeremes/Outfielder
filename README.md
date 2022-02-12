@@ -6,6 +6,6 @@ Using an algorithm the outfielder is approaching the ball so that the distance b
 
 ## Program
 
-This program displays the ball and outfielder moving at the field and the trajectory of the ball.
+This program displays the ball and outfielder moving at the field (2-D) and the trajectory of the ball.
 Additional information, such as the distance, vertical and horizontal angle between ball and outfielder
 is shown on the screen.
