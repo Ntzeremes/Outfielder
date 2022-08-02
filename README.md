@@ -4,7 +4,8 @@ A simple program to get used to creating moving objects with pygame
 
 A ball is hit at a random horizontal and vertical angle and with a random speed.
 An outfielder (glove) is spawned at a random spot on the field.
-Using an algorithm the outfielder is approaching the ball so that the distance between them decreases.
+Using a simple algorithm  that calculates the the distance vector between the outfielder the ball, the outfielder is moving twoards the ball
+so that the distance between them decreases.
 
 ## Program
 
