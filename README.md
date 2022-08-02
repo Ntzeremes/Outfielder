@@ -1,3 +1,5 @@
+A simple program to get used to creating moving objects with pygame
+
 ## Problem description
 
 A ball is hit at a random horizontal and vertical angle and with a random speed.
@@ -6,7 +8,7 @@ Using an algorithm the outfielder is approaching the ball so that the distance b
 
 ## Program
 
-This program displays the ball and outfielder moving at the field (2-D) and the trajectory of the ball.
+This program displays the ball and outfielder moving on the field (2-D) and the trajectory of the ball.
 Additional information, such as the distance, vertical and horizontal angle between ball and outfielder
 is shown on the screen. During every iteration the algorithm used calculates the distance vector between the ball and the player 
 on the level of the field and moves the player twards the ball on the direction of that vector based on the speed of the player.
